@@ -1,6 +1,5 @@
 package com.sda.springstarter.demo;
 
-import com.sda.springstarter.demo.interfaces.BookService;
 import com.sda.springstarter.demo.model.Book;
 import com.sda.springstarter.demo.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

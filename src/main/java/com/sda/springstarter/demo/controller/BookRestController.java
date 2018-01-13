@@ -17,8 +17,8 @@ public class BookRestController {
     private BookServiceImpl bookService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Book> getAllBooks(){
-        return bookService.getAllBooks();
+    public List<Book> getAll(){
+        return bookService.getAll();
     }
 
 }

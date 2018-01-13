@@ -1,11 +1,13 @@
 package com.sda.springstarter.demo.model;
 
+import com.sda.springstarter.demo.interfaces.ModelEntity;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "autorzy")
-public class Author {
+public class Author implements ModelEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
