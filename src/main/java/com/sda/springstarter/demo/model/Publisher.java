@@ -16,7 +16,7 @@ public class Publisher implements ModelEntity {
     private String name;
     private String address;
 
-    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bookPublisher", cascade = CascadeType.ALL)
     private Set<Book> book;
 
     public Publisher() {

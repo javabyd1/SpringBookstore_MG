@@ -14,7 +14,7 @@ public class Book implements ModelEntity {
     private String title;
 
     @ManyToOne
-    private Publisher publisher;
+    private Publisher bookPublisher;
 
     @ManyToOne
     private BookCategory bookCategory;
@@ -29,12 +29,12 @@ public class Book implements ModelEntity {
         this.title = title;
     }
 
-    public Publisher getPublisher() {
-        return publisher;
+    public Publisher getBookPublisher() {
+        return bookPublisher;
     }
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
+    public void setBookPublisher(Publisher bookPublisher) {
+        this.bookPublisher = bookPublisher;
     }
 
     public BookCategory getBookCategory() {
