@@ -11,8 +11,7 @@ public class Book {
     private int id;
     private String title;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_publisher_id")
+    @ManyToOne
     private Publisher publisher;
 
     @ManyToOne
