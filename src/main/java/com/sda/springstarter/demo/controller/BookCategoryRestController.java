@@ -1,7 +1,7 @@
 package com.sda.springstarter.demo.controller;
 
-import com.sda.springstarter.demo.model.Book;
-import com.sda.springstarter.demo.service.BookServiceImpl;
+import com.sda.springstarter.demo.model.BookCategory;
+import com.sda.springstarter.demo.service.BookCategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")
-public class BookRestController {
+@RequestMapping("/bookCategories")
+public class BookCategoryRestController {
 
     @Autowired
-    private BookServiceImpl bookService;
+    private BookCategoryServiceImpl authorService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Book> getAll(){
-        return bookService.getAll();
+    public List<BookCategory> getAll(){
+        return authorService.getAll();
     }
 
 }
