@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/books")
@@ -27,6 +28,11 @@ public class BookRestController {
     @PostMapping("/addonebook")
     public void save(@RequestBody Book book){
         bookService.save(book);
+    }
+
+    @PostMapping("/addmanybooks")
+    public void save(@RequestBody Set<Book> books){
+        bookService.saveAll(books);
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PublisherServiceImpl implements GenericService <Publisher> {
@@ -22,5 +23,10 @@ public class PublisherServiceImpl implements GenericService <Publisher> {
     @Override
     public void save(Publisher publisher) {
         publisherRepository.save(publisher);
+    }
+
+    @Override
+    public void saveAll(Set<Publisher> publishers) {
+        publisherRepository.save(publishers);
     }
 }

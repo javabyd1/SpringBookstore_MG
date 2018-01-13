@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BookCategoryServiceImpl implements GenericService<BookCategory> {
@@ -22,5 +23,10 @@ public class BookCategoryServiceImpl implements GenericService<BookCategory> {
     @Override
     public void save(BookCategory bookCategory) {
         bookCategoryRepository.save(bookCategory);
+    }
+
+    @Override
+    public void saveAll(Set<BookCategory> booksCategories) {
+        bookCategoryRepository.save(booksCategories);
     }
 }
