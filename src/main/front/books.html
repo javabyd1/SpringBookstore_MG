@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+
+<script>
+    $(document).ready(function () {
+        console.log("hello new world");
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/books',
+            success: function (result) {
+                console.log(result);
+                $.each(result, function (key, value) {
+
+                    $("ul").append("<li>" + value['title'] +  "<br>"
+                        + value['bookAuthor']['name'] + " " + value['bookAuthor']['lastname'] + "<br>"
+                        + value['bookPublisher']['name'] + " " + value['bookPublisher']['address'] + "<br>"
+                        +"</li><br>");
+                })
+            },
+            error: function (error) {
+                console.log(error);
+            }
+
+        });
+
+
+        $("#dodaj").click(function () {
+            var title = $("#title").val();
+            console.log(title);
+
+
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8080/books/addonebook",
+                data: JSON.stringify({
+                    title: $("#title").val()
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    console.log("Success: " + response);
+                },
+                error: function (error) {
+                    console.log("Error: " + error.responseText);
+                }
+            })
+
+        });
+
+    });
+
+
+</script>
+
+<body>
+
+    <form>
+        Tytuł: <input id="title" type="text">
+        <input type="button" id="dodaj" value="dodaj">
+    </form>
+
+    <ul>
+    </ul>
+</body>
+</html>
