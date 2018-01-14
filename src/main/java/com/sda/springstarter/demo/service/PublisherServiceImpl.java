@@ -16,6 +16,11 @@ public class PublisherServiceImpl implements GenericService <Publisher> {
     PublisherRepository publisherRepository;
 
     @Override
+    public Publisher getBy(int id) {
+        return null;
+    }
+
+    @Override
     public List<Publisher> getAll() {
         return publisherRepository.findAll();
     }

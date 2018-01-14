@@ -16,6 +16,11 @@ public class AuthorServiceImpl implements GenericService<Author> {
     private AuthorRepository authorRepository;
 
     @Override
+    public Author getBy(int id) {
+        return null;
+    }
+
+    @Override
     public List<Author> getAll() {
         return authorRepository.findAll();
     }

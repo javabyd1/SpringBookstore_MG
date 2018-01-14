@@ -16,6 +16,11 @@ public class BookCategoryServiceImpl implements GenericService<BookCategory> {
     BookCategoryRepository bookCategoryRepository;
 
     @Override
+    public BookCategory getBy(int id) {
+        return null;
+    }
+
+    @Override
     public List<BookCategory> getAll() {
         return bookCategoryRepository.findAll();
     }

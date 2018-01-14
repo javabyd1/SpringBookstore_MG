@@ -3,7 +3,10 @@ package com.sda.springstarter.demo.controller;
 import com.sda.springstarter.demo.model.Book;
 import com.sda.springstarter.demo.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +22,6 @@ public class BookRestController {
     @Autowired
     private BookServiceImpl bookService;
 
-//    @RequestMapping(method = RequestMethod.GET)
     @GetMapping
     public List<Book> getAll(){
         return bookService.getAll();
@@ -33,6 +35,13 @@ public class BookRestController {
     @PostMapping("/addmanybooks")
     public void save(@RequestBody Set<Book> books){
         bookService.saveAll(books);
+    }
+
+    @GetMapping(value = "{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable int id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(bookService.getBy(id));
     }
 
 }
