@@ -10,20 +10,44 @@
 <body>
 <div class="container">
 
-    <h1>Lista ksiazek!!</h1>
+    <h1>Book list</h1>
     <table border="1">
         <tr>
-            <th>Tytul</th>
-            <th>Autor</th>
-            <th>Wydawnictwo</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Category</th>
         </tr>
 
         <tr th:each="book : ${books}">
             <td th:text="${book.getTitle()}"></td>
-            <td th:text="${book.getBookAuthor().getLastname()}"></td>
+            <td th:text="${book.getBookAuthor().getName()}"></td>
             <td th:text="${book.getBookPublisher().getName()}"></td>
+            <td th:text="${book.getBookCategory().getName()}"></td>
         </tr>
     </table>
+
+    <h1>Add new book</h1>
+    <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+        <p>Book title: <input type="text" th:field="*{title}"/></p>
+        <p>Book author: <input type="text" th:field="*{bookAuthor.name}"/></p>
+            <label>Book category: </label>
+        <select th:field="*{bookCategory.id}">
+            <option th:each="cat : ${categories}"
+                    th:value="${cat.getId()}"
+                    th:text="${cat.getName()}"  ></option>
+        </select>
+
+            <label>Book publisher</label>
+        <select th:field="*{bookPublisher.id}">
+            <option th:each="pub : ${publishers}"
+                    th:value="${pub.getId()}"
+                    th:text="${pub.getName()}"  ></option>
+        </select>
+
+        <p><input type="submit" value="Add book" /></p>
+
+    </form>
 
 </div>
 </body>

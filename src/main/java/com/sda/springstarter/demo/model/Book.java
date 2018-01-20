@@ -19,7 +19,7 @@ public class Book implements ModelEntity {
     @ManyToOne
     private BookCategory bookCategory;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Author bookAuthor;
 
     public Book() {
